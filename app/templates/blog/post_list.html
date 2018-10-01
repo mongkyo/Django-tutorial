@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	{% for post in posts %}
+	<div class="card mb-2">
+		<div class="card-body">
+			<h5 class="card-title">
+				<a href="{% url 'post-detail' pk=post.pk %}">{{ post.title }}</a>
+			</h5>
+			<h6 class="card-subtitle mb-2 text-muted">{{ post.created_date }}</h6>
+			<p class="card-text">{{ post.text|linebreaksbr|truncatechars:200 }}</p>
+
+			<div>
+				<div class="post-btn-container float-left">
+					<a href="{% url 'post-update' pk=post.pk %}" class="btn btn-info">수정</a>
+				</div>
+				<p class="text-right">Author: {{ post.author }}</p>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock %}{% extends 'base.html' %}
+
+{% block content %}
+	{% for post in posts %}
+	<div class="card mb-2">
+		<div class="card-body">
+			<h5 class="card-title">
+				<a href="{% url 'post-detail' pk=post.pk %}">{{ post.title }}</a>
+			</h5>
+			<h6 class="card-subtitle mb-2 text-muted">{{ post.created_date }}</h6>
+			<p class="card-text">{{ post.text|linebreaksbr|truncatechars:200 }}</p>
+
+			<div>
+				<div class="post-btn-container float-left">
+					<a href="{% url 'post-update' pk=post.pk %}" class="btn btn-info">수정</a>
+				</div>
+				<p class="text-right">Author: {{ post.author }}</p>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock %}

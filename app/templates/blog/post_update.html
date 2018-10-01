@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>포스트({{ post.title }}) 수정</h2>
+<form action="" method="POST">
+	{% csrf_token %}
+	<div class="form-group">
+		<label for="id-title">제목</label>
+		<input id="id-title" type="text" name="title" class="form-control" value="{{ post.title }}">
+	</div>
+	<div class="form-group">
+		<label for="id-text">내용</label>
+		<textarea id="id-text" name="text" cols="30" rows="10" class="form-control">{{ post.text }}</textarea>
+	</div>
+	<button class="btn btn-primary btn-block" type="submit">작성</button>
+</form>
+{% endblock %}
